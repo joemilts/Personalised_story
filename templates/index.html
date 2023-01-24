@@ -12,7 +12,6 @@
   <nav>    
     <a href="./about">About</a>
   </nav>
-  <img src="{{ url_for('static', filename='clouds.png') }}" class="icon" />
   <h3>Personalised Stories</h3>
   <form action="/" method="post">
     <input type="text" name="description" placeholder="Describe a story you'd like to hear" required />
@@ -23,6 +22,13 @@
   {% if result %}
   <div class="result">{{ result }}</div>
   {% endif %}
+</body>
+<body>
+  <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
 </body>
 
 
