@@ -20,6 +20,13 @@ input {
   color: #353740;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
+
+button {
+  font-size: 16px;
+  line-height: 24px;
+  color: #353740;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -134,3 +141,4 @@ body {
       transform: translateX(1);
   }
 }
+
