@@ -5,22 +5,18 @@
  
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
-<a href="./about">About</a>
+
 <body>
-  <nav>    
-    
-  </nav>
-  <video autoplay loop muted plays-inline class="back-video"><h3>Personalised Stories</h3> <source src="static/bee.mp4"></video>
-  <br><br><br><br><br><br>
+  <h3 class="purples">Personalised Stories</h3>
+  <video autoplay loop muted plays-inline class="back-video"> <source src="static/bee.mp4"></video>
+  <br><br><br>
   <form action="/" method="post">
     <input type="text" name="description" placeholder="Describe a story you'd like to hear" required />
     <input type="text" name="age" placeholder="Target Age" required />
     <input type="text" name="characters" placeholder="Characters to include" required />
     <button type="submit" value="Generate Story" > Generate Story</button>
   </form>
-  {% if result %}
-  <div class="result">{{ result }}</div>
-  {% endif %}
+  
 </body>
 
 
