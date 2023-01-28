@@ -32,10 +32,12 @@ def index():
         result2 = res[resl2]
         result3 = res[resl3]
 
-        def read_text(res):
-            tts = gTTS(res=res, lang='en')
+        def read_text(text):
+
+            tts = gTTS(text=text, lang='en')
             tts.save("audio.mp3")
-            os.system("mpg321 audio.mp3")
+
+        audio_file1 = read_text(result1)
 
         return redirect(url_for("about", result=result, result1=result1, result2=result2, result3=result3))
 
@@ -54,3 +56,7 @@ def about():
 
 def generate_prompt(description, age, characters):
     return ' Kids story.' + f'Story about: {description}' + f' target age: {age}' + f'Include characters: {characters}'
+
+
+if os.path.exists("audio.mp3"):
+    os.remove("audio.mp3")

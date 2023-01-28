@@ -6,7 +6,8 @@
          
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     
-    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
  
@@ -31,9 +32,9 @@
 		  }
 			h3 {
 text-align: center;
-  font-size: 32px;
+  font-size: 25px;
   font-family: 'Rocher';
-  margin: 16px 0 40px;
+  margin: 16px 0 5px;
   
 }
 .purples {
@@ -63,7 +64,7 @@ background-size: cover; }
 	border-radius:10px;
 }
 .booklet .b-wrap-left  {
-	background:#fff url(images/left_bg.jpg) no-repeat top left;
+	background:#fff url(static/images/left_bg.jpg) no-repeat top left;
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-bottom-left-radius: 10px;
 	-moz-border-radius-topleft:10px;
@@ -72,7 +73,7 @@ background-size: cover; }
 	border-bottom-left-radius: 10px;
 }
 .booklet .b-wrap-right {
-	background:#efefef url(images/right_bg.jpg) no-repeat top left;
+	background:#efefef url(static/images/right_bg.jpg) no-repeat top left;
 	-webkit-border-top-right-radius: 10px;
 	-webkit-border-bottom-right-radius: 10px;
 	-moz-border-radius-topright: 10px;
@@ -103,7 +104,7 @@ background-size: cover; }
 	width:905px;
 	height:540px;
 	position:relative;
-	background:transparent url(images/bg.png) no-repeat 9px 27px;
+	background:transparent url(static/images/bg.png) no-repeat 9px 27px;
 }
 .book_wrapper h1{
 	color:rgb(0, 0, 0);
@@ -111,7 +112,7 @@ background-size: cover; }
 	font-size:20px;
 	font-weight: bold;
 
-	background:transparent url(images/h1.png) no-repeat bottom left;
+	background:transparent url(static/images/h1.png) no-repeat bottom left;
 	padding-bottom:7px;
 	text-align: center;
     text-transform: uppercase;
@@ -123,7 +124,7 @@ background-size: cover; }
 }
 .book_wrapper a.article,
 .book_wrapper a.demo{
-	background:transparent url(images/circle.png) no-repeat 50% 0px;
+	background:transparent url(static/images/circle.png) no-repeat 50% 0px;
 	display:block;
 	width:95px;
 	height:41px;
@@ -164,7 +165,7 @@ a#prev_page_button{
 	cursor:pointer;
 	margin-top:-20px;
 	top:50%;
-	background:transparent url(images/buttons.png) no-repeat 0px -40px;
+	background:transparent url(static/images/buttons.png) no-repeat 0px -40px;
 }
 a#prev_page_button{
 	left:-30px;
@@ -190,7 +191,7 @@ a#prev_page_button:hover{
 
 
 .text {
-	text-align: justify;
+	text-align: center;
 }
 </style>
 		 
@@ -198,11 +199,10 @@ a#prev_page_button:hover{
 	
 <body>
 
-		
+	<h3>Story Time</h3>
 	<div class="book_wrapper">
 		
-			<h3>Story Time</h3>
-			<a id="next_page_button"></a>
+	<a id="next_page_button"></a>
 			<a id="prev_page_button"></a>
 			 
 			<div id="mybook" style="display:none;">
@@ -210,8 +210,20 @@ a#prev_page_button:hover{
 					<div>
 						<img src="static/mikey.jpg" alt=""/>
 						<h1>Chapter 1</h1>
-						<p> {{ result }}-</p>
-						
+						<p class="text"> {{ result }}-</p>
+						<audio id="myAudio">
+  <source src="{{audio_file1}}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<p>Click the buttons to play or pause the audio.</p>
+<button onclick="playAudio()" type="button">Play Audio</button>
+<button onclick="pauseAudio()" type="button">Pause Audio</button>
+<script>
+	function playSound() {
+  var sound = document.getElementById("audio");
+  sound.play();
+}
+</script> 
 					</div>
 					<div>
 						<img src="static/cuindrella.jfif" alt="" />
@@ -222,26 +234,27 @@ a#prev_page_button:hover{
 					<div>
 						<img src="static/woody.jpg" alt="" />
 						<h1>Chapter 3</h1>
-						<p>-{{ result2 }}-</p>
+						<p class="text">-{{ result2 }}-</p>
 						
 					</div>
 					<div>
 						<img src="static/monsters.jpg" alt="" />
 						<h1>Chapter 4</h1>
-						<p>-{{ result3 }}</p>
+						<p class="text"> -{{ result3 }}</p>
 					
 					</div>
 					
 				</div>
 			</div>
-		</div>
-		<br><br><br>
-		<h3> Audio : <br> <audio controls preload="auto">
+			<h3> Audio : <br> <audio controls preload="auto">
   
-  <source src="" type="audio/mpeg3">
+  <source src="{{audio_file}}" type="audio/mpeg3">
 
 </audio>
 	</h3>	
+		</div>
+		
+		
 
         <script type="text/javascript">
 			$(function() {
