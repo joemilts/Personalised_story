@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
   <body>
-  <title>OpenAI Quickstart</title>
- 
+  <title>Children Stories</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
@@ -11,12 +11,26 @@
  
   <video autoplay loop muted plays-inline class="back-video"> <source src="static/bee.mp4"></video>
   <br><br><br>
+  
+  
+
+  <div id="content">
+
   <form action="/" method="post">
-    <input type="text" name="description" placeholder="Describe a story you'd like to hear" required />
-    <input type="text" name="age" placeholder="Target Age" required />
+    <input type="text" name="description" placeholder="Describe a story you'd like to hear" required/>
+    <input type="text" name="age" placeholder="Target Age" required/>
     <input type="text" name="characters" placeholder="Characters to include" required />
-    <button type="submit" value="Generate Story" > Generate Story</button>
+    <button type="submit" value="Generate Story" onclick="loading();" > Generate Story</button>
   </form>
+  </div>
+  <div id="loading" style="display: none;" ><h3>Loading ..</h3><img src="/static/load.gif"></div>
+  <script type="text/javascript">// <![CDATA[
+    function loading(){
+        $("#loading").show();
+        $("#content").hide();
+              
+    }
+// ]]></script>
 
 </body>
 

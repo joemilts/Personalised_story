@@ -7,7 +7,7 @@
     
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
  
  
@@ -28,6 +28,13 @@ src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);}
 }
 h3{
 text-align: center;
+font-size: 38px;
+font-family: 'Rocher';
+margin: auto;
+  
+}
+h1{
+text-align: center;
 font-size: 25px;
 font-family: 'Rocher';
 margin: 16px 0 5px;
@@ -40,17 +47,21 @@ margin: 16px 0 5px;
 
 
 body{ 
-background-color:#333;
+background-color:rgb(0, 0, 0);
 background-image: url('static/littleboy.jpg'); 
-background-size: cover; }
+
+background-repeat: no-repeat ;
+background-size: cover;
+ }
 
 
  
 .booklet{
+	
 	width:900px;
 	height:607px;
 	position:relative;
-	margin:0 auto 10px;
+	margin:0 auto 1px;
 	-moz-box-shadow:0px 0px 1px #fff;
 	-webkit-box-shadow:0px 0px 1px #fff;
 	box-shadow:0px 0px 1px #fff;
@@ -202,26 +213,82 @@ a#prev_page_button:hover{
 .text {
 	text-align: center;
 }
+button[type="submit"] {
+  padding: 12px 3px;
+  color: #fff;
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.backArrow {
+    font-size: 18px;
+    line-height: 18px;
 
+    width: 1em;
+    height: 1em;
+    padding: 6px;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transform: rotate(180deg);
+
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+
+    -webkit-touch-callout: none;
+     -khtml-user-select: none;
+}
+.backArrow:hover {
+    background: rgba(255,255,255,.5);
+}
+.backArrow:active {
+    position: relative;
+    right: 2px;
+}
+.container{
+padding-top: 0;
+
+  margin: -10px 3%;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
 </style>		 
 </head>
 
 
 <body>
-	{% block title %}
+	<h3>Story Time</h3>
+	
+	<div class="container">
+	<a href="/" class="button"><div title="Back to Menu" class="backArrow">&#10140;
+  </div></a>
+   
 
-			{% endblock %}
-<h3>Story Time</h3>
-<div class="book_wrapper">
-		
+</div>
+
+
+<div class="book_wrapper">	
 <a id="next_page_button"></a>
 <a id="prev_page_button"></a>
 			 
 	<div id="mybook" style="display:none;">
 	<div class="b-load">
 		<div>
-			<img src="static/mikey.jpg" alt=""/>
+			
 			<h1>Chapter 1</h1>
+			<br><br><br><br><br>
 			<p class="text">{{ result }}-</p>
 			<br><br><br>
 		<audio id="myAudio">
@@ -247,8 +314,9 @@ function pauseAudio() {
 	
 
 			<div>
-				<img src="static/cuindrella.jfif" alt="" />
+				
 				<h1>Chapter 2</h1>
+				<br><br><br><br><br>
 				<p class="text">-{{ result1 }}-</p>
 				<br><br><br>
 				<audio id="myAudio1">
@@ -271,8 +339,9 @@ function pauseAudio1() {
 		</script>
 			</div>
 			<div>
-				<img src="static/woody.jpg" alt="" />
+				
 				<h1>Chapter 3</h1>
+				<br><br><br><br><br>
 				<p class="text">-{{ result2 }}-</p>
 				<br><br><br>
 				<audio id="myAudio2">
@@ -295,8 +364,9 @@ function pauseAudio2() {
 		</script>
 			</div>
 			<div>
-			    <img src="static/monsters.jpg" alt="" />
+			    
 				<h1>Chapter 4</h1>
+				<br><br><br><br><br>
 				<p class="text">-{{ result3 }}</p>
 				<br><br><br>
 				<audio id="myAudio3">
@@ -319,18 +389,30 @@ function pauseAudio3() {
 
 		</script>
 			</div>
+			<div>
+			    
+				<h1>Chapter 5</h1>
+				<br><br><br><br><br>
+				<p class="text"></p>
+				
+
+			</div>
+			<div>
+			    <img src="static/monsters.jpg" alt="" />
+				<h1>Well Done !</h1>
+			</div>
 					
 			</div>
 			</div>
 			
 
 			
-			<h3> Audio : <br> 
+			<h1> Audio : <br> 
 <audio controls>
   <source src="http://127.0.0.1:5000/wav" type="audio/wav">
 
 </audio>
-	</h3>	
+	</h1>	
     
 		</div>
 
@@ -371,6 +453,7 @@ function pauseAudio3() {
 				
 			});
 </script>
+
 
 </body>
  

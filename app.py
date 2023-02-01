@@ -57,13 +57,13 @@ def index():
 
             tts = gTTS(text=text, lang='en')
             tts.save("audio/audio4.wav")
-        audio_file = read_text(res)
+
         audio_file1 = read_text1(result)
         audio_file2 = read_text2(result1)
         audio_file3 = read_text3(result2)
         audio_file4 = read_text4(result3)
-
-        return redirect(url_for("about", result=result, result1=result1, result2=result2, result3=result3))
+        audio_file = read_text(res)
+        return redirect(url_for("about",  result=result, result1=result1, result2=result2, result3=result3))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
@@ -75,7 +75,8 @@ def about():
     result1 = request.args.get("result1")
     result2 = request.args.get("result2")
     result3 = request.args.get("result3")
-    return render_template("inde.html", result=result, result1=result1, result2=result2, result3=result3)
+
+    return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3)
 
 
 @app.route("/wav")

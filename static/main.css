@@ -47,9 +47,17 @@ body {
   width: 300px;
 }
 h3 {
-  font-size: 32px;
+  font-size: 38px;
   font-family: 'Rocher';
   margin: 16px 0 40px;
+  
+}
+h1 {
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Rocher';
+  
   
 }
 .purples {
@@ -160,5 +168,17 @@ body {
   z-index: -1;
 }
 
-
+div#loading {
+  width: 200px;
+  height: 200px;
+  display: none;
+  
+  cursor: wait;
+  }
+  img {
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
