@@ -5,7 +5,7 @@ from gtts import gTTS
 from flask import Flask, redirect, render_template, request, url_for, Response
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("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")
 
 
 @app.route("/", methods=("GET", "POST"))
