@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'personalisedstories'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_888693FEBFFA457F843A338E7ED47CD0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A452374D92F486F9737F5AEB47A6BD9 }}
