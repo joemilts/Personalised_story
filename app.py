@@ -4,8 +4,9 @@ import openai
 from gtts import gTTS
 from flask import Flask, redirect, render_template, request, url_for, Response
 
+
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 
 @app.route("/", methods=("GET", "POST"))
