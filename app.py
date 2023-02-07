@@ -3,10 +3,23 @@ import re
 import openai
 from gtts import gTTS
 from flask import Flask, redirect, render_template, request, url_for, Response
+from azure.identity import ClientSecretCredential
+from azure.keyvault.secrets import SecretClient
 
+KEYVAULT_URI = "https://joemilton66.vault.azure.net/"
+
+_credential = ClientSecretCredential(
+    tenant_id="ce3d9b6f-0814-4c7c-815b-6850f1bcd4b3",
+    client_id="386168dd-e3da-4d2a-a784-cd98bf3cb113",
+    client_secret="sak8Q~hracnfF3w2.obj~n1_j7yZydUPEZ5JzcgZ"
+)
+
+_sc = SecretClient(vault_url=KEYVAULT_URI, credential=_credential)
+secret = _sc.get_secret("openaisecret").value
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = _sc.get_secret("openaisecret").value
+
 
 
 @app.route("/", methods=("GET", "POST"))
