@@ -41,7 +41,7 @@ def index():
         for i, paragraph in enumerate(paragraphs):
             variable_name = f"paragraph_{i+1}"
             globals()[variable_name] = paragraph
-            print(f"{variable_name}: {paragraph}")
+
         paragraph = variable_name
         # and here to dived the the story into chapters you can change the value if you want
 
@@ -56,9 +56,7 @@ def index():
 
             tts = gTTS(text=text, lang='en')
             tts.save("audio/audio.wav")
-
         audio_file = read_text(generated_story)
-
         return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5))
 
     result = request.args.get("result")
