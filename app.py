@@ -21,7 +21,6 @@ app = Flask(__name__)
 openai.api_key = _sc.get_secret("openaisecret").value
 
 
-
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -34,50 +33,33 @@ def index():
             prompt=generate_prompt(description, age, characters),
             temperature=0.4,
             # here mate you can specify how many characters you want to get
-            max_tokens=1500
+            max_tokens=2048
         )
+
+        generated_story = response["choices"][0]["text"].strip()
+        paragraphs = split_into_paragraphs(generated_story, 6)
+        for i, paragraph in enumerate(paragraphs):
+            variable_name = f"paragraph_{i+1}"
+            globals()[variable_name] = paragraph
+            print(f"{variable_name}: {paragraph}")
+        paragraph = variable_name
         # and here to dived the the story into chapters you can change the value if you want
-        res = response.choices[0].text
-        resl = slice(0, 340)
-        resl1 = slice(340, 680)
-        resl2 = slice(680, 920)
-        resl3 = slice(920, 1500)
-        result = res[resl]
-        result1 = res[resl1]
-        result2 = res[resl2]
-        result3 = res[resl3]
+
+        result = paragraph_1
+        result1 = paragraph_2
+        result2 = paragraph_3
+        result3 = paragraph_4
+        result4 = paragraph_5
+        result5 = paragraph_6
 
         def read_text(text):
 
             tts = gTTS(text=text, lang='en')
             tts.save("audio/audio.wav")
 
-        def read_text1(text):
+        audio_file = read_text(generated_story)
 
-            tts = gTTS(text=text, lang='en')
-            tts.save("audio/audio1.wav")
-
-        def read_text2(text):
-
-            tts = gTTS(text=text, lang='en')
-            tts.save("audio/audio2.wav")
-
-        def read_text3(text):
-
-            tts = gTTS(text=text, lang='en')
-            tts.save("audio/audio3.wav")
-
-        def read_text4(text):
-
-            tts = gTTS(text=text, lang='en')
-            tts.save("audio/audio4.wav")
-
-        audio_file1 = read_text1(result)
-        audio_file2 = read_text2(result1)
-        audio_file3 = read_text3(result2)
-        audio_file4 = read_text4(result3)
-        audio_file = read_text(res)
-        return redirect(url_for("about",  result=result, result1=result1, result2=result2, result3=result3))
+        return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
@@ -89,8 +71,10 @@ def about():
     result1 = request.args.get("result1")
     result2 = request.args.get("result2")
     result3 = request.args.get("result3")
+    result4 = request.args.get("result4")
+    result5 = request.args.get("result5")
 
-    return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3)
+    return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5)
 
 
 @app.route("/wav")
@@ -104,49 +88,19 @@ def streamwav():
     return Response(generate(), mimetype="audio/x-wav")
 
 
-@app.route("/wav1")
-def streamwav1():
-    def generate():
-        with open("audio/audio1.wav", "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-    return Response(generate(), mimetype="audio/x-wav")
-
-
-@app.route("/wav2")
-def streamwav2():
-    def generate():
-        with open("audio/audio2.wav", "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-    return Response(generate(), mimetype="audio/x-wav")
-
-
-@app.route("/wav3")
-def streamwav3():
-    def generate():
-        with open("audio/audio3.wav", "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-    return Response(generate(), mimetype="audio/x-wav")
-
-
-@app.route("/wav4")
-def streamwav4():
-    def generate():
-        with open("audio/audio4.wav", "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-    return Response(generate(), mimetype="audio/x-wav")
-
-
 def generate_prompt(description, age, characters):
-    return ' Kids story.' + f'Story about: {description}' + f' target age: {age}' + f'Include characters: {characters}'
+    return ' Kids story.' + f'Story about: {description}' + f' target age: {age}' + f'Include characters: {characters}' + f', Story length 380 word'
+
+
+def split_into_paragraphs(text, num_paragraphs):
+    # Split the text into sentences
+    sentences = text.split('. ')
+
+    # Calculate the number of sentences in each paragraph
+    sentences_per_paragraph = len(sentences) // num_paragraphs
+
+    # Split the sentences into paragraphs
+    paragraphs = ['. '.join(sentences[i:i+sentences_per_paragraph])
+                  for i in range(0, len(sentences), sentences_per_paragraph)]
+
+    return paragraphs

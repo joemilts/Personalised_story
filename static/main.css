@@ -47,15 +47,14 @@ body {
   width: 300px;
 }
 h3 {
-  font-size: 38px;
+  font-size: 50px;
   font-family: 'Rocher';
-  margin: 16px 0 40px;
+  margin: 16px 0 35px;
   
 }
 h1 {
-  font-size: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 35px;
+  margin: 16px 0 40px;
   font-family: 'Rocher';
   
   

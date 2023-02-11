@@ -30,14 +30,33 @@ h3{
 text-align: center;
 font-size: 38px;
 font-family: 'Rocher';
-margin: auto;
+margin: 1px 0 1px;
   
 }
-h1{
+h2{
 text-align: center;
 font-size: 25px;
 font-family: 'Rocher';
-margin: 16px 0 5px;
+margin: 1px 0 0;
+  
+}
+h1{
+
+font-size: 13px;
+font-family: 'Rocher';
+margin: 1px 0 0;
+  
+}
+h4 {
+	text-align: center;
+	font-size: large;
+	font-weight: lighter;
+}
+h3{
+
+font-size: 30px;
+font-family: 'Rocher';
+margin: 1px 0 0;
   
 }
 .purples {
@@ -273,8 +292,8 @@ a.button {
 	
 	<div class="container">
 	<a href="/" class="button"><div title="Back to Home" class="backArrow">&#10140;
-  </div></a>
-   
+  </div><h1>Home</h1></a>
+  
 
 </div>
 
@@ -288,28 +307,10 @@ a.button {
 		<div>
 			
 			<h1>Chapter 1</h1>
+			
 			<br><br><br><br><br>
-			<p class="text">{{ result }}-</p>
+			<p class="text"><h4>{{ result }}</h4></p>
 			<br><br><br>
-		<audio id="myAudio">
-  <source src="http://127.0.0.1:5000/wav1" type="audio/wav"></audio>
-
-  <! -- you can add a class to style the buttons the way you want  -->
-
-  
-  <button onclick="playAudio()" type="button">Play Audio</button>
-<button onclick="pauseAudio()" type="button">Pause Audio</button> 
-	<script>
-		var x = document.getElementById("myAudio"); 
-
-function playAudio() { 
-  x.play(); 
-} 
-
-function pauseAudio() { 
-  x.pause(); }
-
-		</script>
 		</div>
 	
 
@@ -317,102 +318,63 @@ function pauseAudio() {
 				
 				<h1>Chapter 2</h1>
 				<br><br><br><br><br>
-				<p class="text">-{{ result1 }}-</p>
+				<p class="text"><h4>{{ result1 }}</h4></p>
 				<br><br><br>
-				<audio id="myAudio1">
-  <source src="http://127.0.0.1:5000/wav2" type="audio/wav"></audio>
-
-  <! -- you can add a class to style the buttons the way you want  -->
-
-  <button onclick="playAudio1()" type="button">Play Audio</button>
-<button onclick="pauseAudio1()" type="button">Pause Audio</button> 
-<script>
-		var y = document.getElementById("myAudio1"); 
-
-function playAudio1() { 
-  y.play(); 
-} 
-
-function pauseAudio1() { 
-  y.pause(); }
-
-		</script>
+				
 			</div>
 			<div>
 				
 				<h1>Chapter 3</h1>
 				<br><br><br><br><br>
-				<p class="text">-{{ result2 }}-</p>
+				<p class="text"><h4>{{ result2 }}</h4></p>
 				<br><br><br>
-				<audio id="myAudio2">
-  <source src="http://127.0.0.1:5000/wav3" type="audio/wav"></audio>
-  
-  <! -- you can add a class to style the buttons the way you want  -->
-
-  <button onclick="playAudio2()" type="button">Play Audio</button>
-<button onclick="pauseAudio2()" type="button">Pause Audio</button> 
-<script>
-		var w = document.getElementById("myAudio2"); 
-
-function playAudio2() { 
-  w.play(); 
-} 
-
-function pauseAudio2() { 
-  w.pause(); }
-
-		</script>
+				
 			</div>
 			<div>
 			    
 				<h1>Chapter 4</h1>
 				<br><br><br><br><br>
-				<p class="text">-{{ result3 }}</p>
+				<p class="text"><h4>{{ result3 }}</h4></p>
 				<br><br><br>
-				<audio id="myAudio3">
-  <source src="http://127.0.0.1:5000/wav4" type="audio/wav"></audio>
-
-  <! -- you can add a class to style the buttons the way you want  -->
-
-
-  <button onclick="playAudio3()" type="button">Play Audio</button>
-<button onclick="pauseAudio3()" type="button">Pause Audio</button> 
-<script>
-		var z = document.getElementById("myAudio3"); 
-
-function playAudio3() { 
-  z.play(); 
-} 
-
-function pauseAudio3() { 
-  z.pause(); }
-
-		</script>
+			
+	
 			</div>
 			<div>
 			    
 				<h1>Chapter 5</h1>
 				<br><br><br><br><br>
-				<p class="text"></p>
-				
-
+				<p class="text"><h4>{{ result4 }}</h4></p>
+				<br><br><br>
+			
+	
 			</div>
 			<div>
-			    <img src="static/monsters.jpg" alt="" />
-				<h1>Well Done !</h1>
+			    
+				<h1>Chapter 6</h1>
+				<br><br><br><br><br>
+				<p class="text"><h4>{{ result5 }}</h4></p>
+				<br><br><br>
+			
+	
 			</div>
+		
 					
 			</div>
+			<div>
+			    
+				<h1>Well Done !</h1>
+				<img src="static/monsters.jpg" alt="" />
+			</div>
 			</div>
 			
 
 			
-			<h1> Audio : <br> 
-<audio controls>
-  <source src="http://127.0.0.1:5000/wav" type="audio/wav">
+			<h2> Audio : <br> 
+			<audio controls>
+ 			<source src="http://127.0.0.1:5000/wav" type="audio/wav">
 
-</audio>
-	</h1>	
+			</audio>
+			</h2>	
     
 		</div>
 
