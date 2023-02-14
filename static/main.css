@@ -21,42 +21,54 @@
   font-family: Rocher;
   base-palette: 6;
 }
+
 body,
 input {
   font-size: 16px;
   line-height: 24px;
   color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
+  
 }
 
-
-button {
-  font-size: 16px;
-  line-height: 24px;
-  color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 60px;
- 
+  font-family: verdana;
 }
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.purples {
+  position: absolute;
+  
+}
+#content {
+  position: absolute;
+}
+
 .icon {
   width: 300px;
 }
 h3 {
-  font-size: 50px;
+  font-size: 55px;
   font-family: 'Rocher';
-  margin: 16px 0 35px;
+  margin-top: 
+  10px;
+  margin-bottom: 80vh;
   
 }
 h1 {
   font-size: 35px;
   margin: 16px 0 40px;
   font-family: 'Rocher';
-  
+  text-align: center;
   
 }
 .purples {
@@ -86,87 +98,6 @@ button[type="submit"] {
   text-align: center;
   cursor: pointer;
 }
-.result {
-  font-weight: bold;
-  margin-top: 40px;
-  margin: 16px 0 40px;
-}
-body {
-  margin: auto;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: auto;
-  
-  
-  background-size: 400% 400%;
-  background-attachment: fixed;
-}
-
-@keyframes gradient {
-  0% {
-      background-position: 0% 0%;
-  }
-  50% {
-      background-position: 100% 100%;
-  }
-  100% {
-      background-position: 0% 0%;
-  }
-}
-
-.wave {
-  background: rgb(255 255 255 / 25%);
-  border-radius: 1000% 1000% 0 0;
-  position: fixed;
-  width: 200%;
-  height: 12em;
-  animation: wave 10s -3s linear infinite;
-  transform: translate3d(0, 0, 0);
-  opacity: 0.8;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.wave:nth-of-type(2) {
-  bottom: -1.25em;
-  animation: wave 18s linear reverse infinite;
-  opacity: 0.8;
-}
-
-.wave:nth-of-type(3) {
-  bottom: -2.5em;
-  animation: wave 20s -1s reverse infinite;
-  opacity: 0.9;
-}
-
-@keyframes wave {
-  2% {
-      transform: translateX(1);
-  }
-
-  25% {
-      transform: translateX(-25%);
-  }
-
-  50% {
-      transform: translateX(-50%);
-  }
-
-  75% {
-      transform: translateX(-25%);
-  }
-
-  100% {
-      transform: translateX(1);
-  }
-}
-.back-video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
 div#loading {
   width: 500px;
   height: 500px;
@@ -182,3 +113,83 @@ div#loading {
     width: 30%;
   }
 
+
+
+@media (max-width : 767px){
+  h3 {
+    font-size: 35px;
+  }
+  .video-container{
+    display: none;
+  }
+  body {
+    background: url('poster.png');
+    background-size: cover;
+  }
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.button{
+  position: absolute;
+  margin-top: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 300px;
+  background: #10a37f;
+  border-radius: 55px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
+}
+.button.active{
+  height: 20px;
+  width: 500px;
+}
+.button::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: #06f5b9;
+  border-radius: 55px;
+  transition: all 90s ease-in-out;
+  
+}
+.button.active::before{
+  animation: layer 90s ease-in-out forwards;
+  
+}
+@keyframes layer {
+  100%{
+    left: 0%;
+  }
+}
+.button .content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s ease;
+  transition-delay: 0.6s;
+}
+.button.active .content{
+  transform: translateY(100px);
+}
+.button .content i,
+.button .content .button-text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 200;
+}
+.button .content .button-text{
+  font-size: 28px;
+  margin-left: 8px;
+}
