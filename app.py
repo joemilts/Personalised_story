@@ -53,11 +53,7 @@ def index():
         result5 = paragraph_6
 
         # the audio function if you want to remove
-        def read_text(text):
 
-            tts = gTTS(text=text, lang='en')
-            tts.save("audio/audio.wav")
-        audio_file = read_text(generated_story)
         # here it ends
         return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5))
 
