@@ -43,6 +43,16 @@ h2{
     margin-right: 50vh;
     margin-left: 50vh;
 }
+a {
+    font-family: 'Rocher';
+    font-size: larger;
+    text-decoration: none;
+    position: absolute;
+    margin-bottom: 85vh;
+    margin-right: 50vh;
+    margin-left: 50vh;
+
+}
 #prev-btn {
     position: absolute;
     margin-top: 50vh;
@@ -225,6 +235,7 @@ i {
     margin-bottom: 20px;
 }
 #b3 h3 {
+    position: relative;
     font-size: 2em;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -244,9 +255,7 @@ i {
 
 @media (max-width : 767px){
    
-    .video-container{
-      display: none;
-    }
+    
     header {
         align-items: center;
         

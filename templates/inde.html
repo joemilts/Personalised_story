@@ -17,7 +17,7 @@
     <button id="prev-btn">
         <i class="fas fa-arrow-circle-left"></i>
     </button>
-
+    <a href="{{url_for('index')}}"> Home</a>
     <!-- The Book -->
     <div id="book" class="book">
         <!-- Paper 1 -->
@@ -32,7 +32,7 @@
                 <div id="b1" class="back-content">
                     
                     <div class="content">
-                        <h3>Chapter 1</h3>
+                        
                         <p>{{ result }}</p>
                        
                     </div>
@@ -45,7 +45,7 @@
                 
                 <div id="f2" class="front-content">
                     <div class="content">
-                        <h3>Chapter 2</h3>
+                        
                     <p>{{ result1 }}</p>
                     <p>{{ result2 }}</p>
                     </div>
@@ -54,7 +54,7 @@
             <div class="back">
                 <div id="b2" class="back-content">
                     <div class="content">
-                    <h3>Chapter 3</h3>
+                    
                     <p>{{ result3 }}</p>
                 </div>
                 </div>
@@ -65,7 +65,7 @@
             <div class="front">
                 <div id="f3" class="front-content">
                     <div class="content">
-                    <h3>Chapter 4</h3>
+                    
                     <p>{{ result4 }}</p>
                 </div>
                 </div>
@@ -73,7 +73,7 @@
             <div class="back">
                 <div id="b3" class="back-content">
                     <div class="content">
-                    <h3>Chapter 5</h3>
+                    
                     <p>{{result5 }}</p>
                 </div>
                 </div>
@@ -85,12 +85,7 @@
     <button id="next-btn">
         <i class="fas fa-arrow-circle-right"></i>
     </button>
-    <h2 class="text"> Audio : <br> 
-        <audio controls>
-         <source src="http://127.0.0.1:5000/wav" type="audio/wav">
-    
-        </audio>
-        </h2>	
+   
 </header>
 
 </body>

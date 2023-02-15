@@ -73,17 +73,6 @@ def about():
     return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5)
 
 
-@app.route("/wav")
-def streamwav():
-    def generate():
-        with open("audio/audio.wav", "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-    return Response(generate(), mimetype="audio/x-wav")
-
-
 def generate_prompt(description, age, characters):
     return ' Kids story.' + f'Story about: {description}' + f' target age: {age}' + f'Include characters: {characters}' + f', Story length 380 word'
 
