@@ -29,7 +29,7 @@ def index():
         characters = request.form["characters"]
 
         response = openai.Completion.create(
-            model="text-davinci-003",
+            model="text-curie-001",
             prompt=generate_prompt(description, age, characters),
             temperature=0.4,
             # here mate you can specify how many characters you want to get
