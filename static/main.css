@@ -31,22 +31,19 @@ input {
   
 }
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 body {
   font-family: verdana;
-  background: url('poster.png');
+  background: url('poster.png') no-repeat;
   background-size: cover;
 }
 header {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+ 
 }
 .purples {
   position: absolute;
@@ -100,7 +97,11 @@ input[type="text"] {
   h3 {
     font-size: 35px;
   }
- 
+  body {
+    font-family: verdana;
+    background: url('poster.png') no-repeat;
+    background-size: cover;
+  }
 
 }
 
