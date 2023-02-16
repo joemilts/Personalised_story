@@ -4,7 +4,7 @@
   <title>Children Stories</title>
   
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
-  
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
 </head>
 
 <body>
@@ -22,44 +22,17 @@
     <input type="text" name="description" placeholder="Describe a story you'd like to hear" required/>
     <input type="text" name="age" placeholder="Target Age" required/>
     <input type="text" name="characters" placeholder="Characters to include" required />
-
-    <button type="submit" id="loading-btn" onclick="startLoading()">Click me!</button>
+      
+    <button type="submit" id="loading-btn" onclick="startLoading(),form.submit()" >Click me!</button>
     <div id="loading-bar-container">
       <div id="loading-bar"></div>
-    </div>
+    
+  </div>
   </form>
   </div>
  
 </header>
 
-<script>
-
-function startLoading() {
-  var btn = document.getElementById("loading-btn");
-  var barContainer = document.getElementById("loading-bar-container");
-  var bar = document.getElementById("loading-bar");
-  btn.disabled = true;
-  btn.style.opacity = 0.5;
-  barContainer.style.display = "block";
-  
-  // Simulate a long-running task
-  var startTime = new Date().getTime();
-  var interval = setInterval(function() {
-    var currentTime = new Date().getTime();
-    var elapsed = currentTime - startTime;
-    if (elapsed >= 15000) {
-      clearInterval(interval);
-      btn.disabled = false;
-      btn.style.opacity = 1;
-      barContainer.style.display = "none";
-      bar.style.width = "100%";
-    } else {
-      var progress = elapsed / 15000;
-      bar.style.width = (progress * 100) + "%";
-    }
-  }, 100);
-}
-</script>
   
 </body>
 
