@@ -1,92 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book</title>
-    <link rel="stylesheet" href="static/stylee.css">
-    <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
-    <script defer src="static/main.js"></script>
-</head>
-<body>
-    <header class="outer-container">
-    <div class="video-container">
-        <img src="static/poster1.png" ></img>
-       </div>
-    <button id="prev-btn">
-        <i class="fas fa-arrow-circle-left"></i>
-    </button>
-    <a href="{{url_for('index')}}"> Home</a>
-    <!-- The Book -->
-    <div id="book" class="book">
-        <!-- Paper 1 -->
-        <div id="p1" class="paper">
-            <div class="front">
-                <div id="f1" class="front-content">
-                    <h1 class="book-title">Story Time </h1>
-                    <img class="cover-img" src="static/kids-learning.png" alt="dog">
-                </div>
-            </div>
-            <div class="back">
-                <div id="b1" class="back-content">
-                    
-                    <div class="content">
-                        
-                        <p>{{ result }}</p>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Paper 2 -->
-        <div id="p2" class="paper">
-            <div class="front">
-                
-                <div id="f2" class="front-content">
-                    <div class="content">
-                        
-                    <p>{{ result1 }}</p>
-                    <p>{{ result2 }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="back">
-                <div id="b2" class="back-content">
-                    <div class="content">
-                    
-                    <p>{{ result3 }}</p>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!-- Paper 3 -->
-        <div id="p3" class="paper">
-            <div class="front">
-                <div id="f3" class="front-content">
-                    <div class="content">
-                    
-                    <p>{{ result4 }}</p>
-                </div>
-                </div>
-            </div>
-            <div class="back">
-                <div id="b3" class="back-content">
-                    <div class="content">
-                    
-                    <p>{{result5 }}</p>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-
-    <button id="next-btn">
-        <i class="fas fa-arrow-circle-right"></i>
-    </button>
+<html>
+  <head>
+    <title>My Website</title>
    
-</header>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.css">
+    
+  </head>
+  <body>
+    <a href="{{ur_for ('index')}}">Home Page</a>
+    <div class="wrapper">
+    <button id="flip">Next</button>
+    <button id="flip-back">Previous</button>
+    
+    <div id="flipbook">
+      <div class="page">
+        
+            
+        <p> </p>
+        
+        <div class="num">1</div>
+    </div>
+      <div class="page"> <p>{{ result }}</p> <div class="num">2</div> </div>
+      <div class="page"><p>{{ result1 }}</p><div class="num">3</div></div>
+      <div class="page"><p>{{ result2 }}</p><div class="num">4</div></div>
+      <div class="page"><p>{{ result3 }}</p><div class="num">5</div></div>
+      <div class="page"><p>{{ result4 }}</p><div class="num">6</div></div>
+    </div>
+  </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <script>
+$(document).ready(function() {
+  var flipbook = $('#flipbook');
 
-</body>
+  flipbook.turn({
+    width: 800,
+    height: 600,
+    autoCenter: true
+  });
+
+  $('#flip').click(function() {
+    flipbook.turn('next');
+  });
+
+  $('#flip-back').click(function() {
+    flipbook.turn('previous');
+  });
+});
+
+
+
+
+
+
+</script>
+   
+  </body>
 </html>
