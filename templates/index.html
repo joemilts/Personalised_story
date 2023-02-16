@@ -24,27 +24,42 @@
     <input type="text" name="description" placeholder="Describe a story you'd like to hear" required/>
     <input type="text" name="age" placeholder="Target Age" required/>
     <input type="text" name="characters" placeholder="Characters to include" required />
-    <div class="button">
-      <div class="content">
-        
-        <button type="submit" class="button-text">Generate Story</button>
-      </div>
-  </div>
+    <button type="submit" id="loading-btn" onclick="startLoading()">Generate Story</button>
+    <div id="loading-bar-container">
+      <div id="loading-bar"></div>
+    </div>
     
   </form>
   </div>
  
 </header>
 <script>
-  const button = document.querySelector(".button");
-  button.addEventListener("click", () =>{
-    button.classList.add("active");
-    setTimeout(()=>{
-      button.classList.remove("active");
-      
-      button.querySelector("button").innerText = "Generated ";
-    },10000);
-  });
+function startLoading() {
+  var btn = document.getElementById("loading-btn");
+  var barContainer = document.getElementById("loading-bar-container");
+  var bar = document.getElementById("loading-bar");
+  btn.disabled = true;
+  btn.style.opacity = 0.5;
+  barContainer.style.display = "block";
+  
+  // Simulate a long-running task
+  var startTime = new Date().getTime();
+  var interval = setInterval(function() {
+    var currentTime = new Date().getTime();
+    var elapsed = currentTime - startTime;
+    if (elapsed >= 15000) {
+      clearInterval(interval);
+      btn.disabled = false;
+      btn.style.opacity = 1;
+      barContainer.style.display = "none";
+      bar.style.width = "100%";
+    } else {
+      var progress = elapsed / 15000;
+      bar.style.width = (progress * 100) + "%";
+    }
+  }, 100);
+}
+
 </script>
   
 </body>
