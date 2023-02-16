@@ -2,9 +2,9 @@
 <head>
   <body>
   <title>Children Stories</title>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  
 </head>
 
 <body>
@@ -16,7 +16,7 @@
    <video src="static/bee.mp4" autoplay loop muted></video>
   </div>
 
-  <div class="overlay"></div>
+  
 
   <div id="content">
     
@@ -24,18 +24,18 @@
     <input type="text" name="description" placeholder="Describe a story you'd like to hear" required/>
     <input type="text" name="age" placeholder="Target Age" required/>
     <input type="text" name="characters" placeholder="Characters to include" required />
-   
-        <button type="submit" id="loading-btn" onclick="startLoading()">Click me!</button>
-        <div id="loading-bar-container">
-          <div id="loading-bar"></div>
-        </div>
-      
- 
+
+    <button type="submit" id="loading-btn" onclick="startLoading()">Click me!</button>
+    <div id="loading-bar-container">
+      <div id="loading-bar"></div>
+    </div>
   </form>
   </div>
  
 </header>
+
 <script>
+
 function startLoading() {
   var btn = document.getElementById("loading-btn");
   var barContainer = document.getElementById("loading-bar-container");
@@ -61,7 +61,6 @@ function startLoading() {
     }
   }, 100);
 }
-
 </script>
   
 </body>

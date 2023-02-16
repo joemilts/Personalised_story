@@ -3,12 +3,13 @@
   <head>
     <title>My Website</title>
    
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.css">
     
   </head>
   <body>
-    <a href="{{ur_for ('index')}}">Home Page</a>
+    
+    <a href="{{url_for ('index')}}">Home Page</a>
     <div class="wrapper">
     <button id="flip">Next</button>
     <button id="flip-back">Previous</button>
@@ -17,15 +18,15 @@
       <div class="page">
         
             
-        <p> </p>
+        <p> {{ result }}</p>
         
         <div class="num">1</div>
     </div>
-      <div class="page"> <p>{{ result }}</p> <div class="num">2</div> </div>
-      <div class="page"><p>{{ result1 }}</p><div class="num">3</div></div>
-      <div class="page"><p>{{ result2 }}</p><div class="num">4</div></div>
-      <div class="page"><p>{{ result3 }}</p><div class="num">5</div></div>
-      <div class="page"><p>{{ result4 }}</p><div class="num">6</div></div>
+      <div class="page"> <p>{{ result1 }}</p> <div class="num">2</div> </div>
+      <div class="page"><p>{{ result2 }}</p><div class="num">3</div></div>
+      <div class="page"><p>{{ result3 }}</p><div class="num">4</div></div>
+      <div class="page"><p>{{ result4 }}</p><div class="num">5</div></div>
+      <div class="page"><p>{{ result5 }}</p><div class="num">6</div></div>
     </div>
   </div>
   

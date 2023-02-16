@@ -4,7 +4,7 @@
     
   }
   body {
-    background-image:url(static/poster1.png);
+    background-image:url(poster1.png);
   }
   
   #flipbook {
@@ -13,8 +13,8 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 20px #888;
     padding: 1px;
-    width: 900px;
-    height: 800px;
+    width: 500px;
+    height: 400px;
     margin: auto;
   }
   
@@ -101,8 +101,8 @@
       height: 300px;
     }
     #flip-next {
-      right: 10px;
-      /* Other button styles */
+      position: absolute;
+      
     }
   }
   .front-content,
@@ -121,6 +121,7 @@
     justify-content: space-around;
   }
   .page p {
+    margin-top: 50vh;
     margin-right: 25px;
     font-size: medium;
     text-align: center;

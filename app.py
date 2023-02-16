@@ -37,7 +37,7 @@ def index():
         )
 
         generated_story = response["choices"][0]["text"].strip()
-        paragraphs = split_into_paragraphs(generated_story, 5)
+        paragraphs = split_into_paragraphs(generated_story, 6)
         for i, paragraph in enumerate(paragraphs):
             variable_name = f"paragraph_{i+1}"
             globals()[variable_name] = paragraph
@@ -50,12 +50,12 @@ def index():
         result2 = paragraph_3
         result3 = paragraph_4
         result4 = paragraph_5
-        
+        result5 = paragraph_6
 
         # the audio function if you want to remove
 
         # here it ends
-        return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4))
+        return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5))
 
     result = request.args.get("result")
     return render_template("index.html", result=result)
@@ -68,9 +68,9 @@ def about():
     result2 = request.args.get("result2")
     result3 = request.args.get("result3")
     result4 = request.args.get("result4")
-    
+    result5 = request.args.get("result5")
 
-    return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3, result4=result4)
+    return render_template("inde.html",  result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5)
 
 
 def generate_prompt(description, age, characters):
