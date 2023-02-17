@@ -29,9 +29,9 @@ def index():
         characters = request.form["characters"]
 
         response = openai.Completion.create(
-            model="text-curie-001",
+            model="text-davinci-002",
             prompt=generate_prompt(description, age, characters),
-            temperature=0.4,
+            temperature=0.6,
             # here mate you can specify how many characters you want to get
             max_tokens=1000
         )
@@ -74,7 +74,7 @@ def about():
 
 
 def generate_prompt(description, age, characters):
-    return ' Kids story.' + f'Story about: {description}' + f' target age: {age}' + f'Include characters: {characters}' + f', Story length 380 word'
+    return f'Write a 500 word kids story about {description} for someone aged {age} and include the characters {characters}'
 
 
 def split_into_paragraphs(text, num_paragraphs):
