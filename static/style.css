@@ -9,10 +9,11 @@
   }
   
   #flipbook {
-    background-color: transparent;
+    background-color: #d0d0d0;
+    background-image: url('old-book-paper1.jpg');
     background-size: cover;
     
-  
+    box-shadow: 0 0 20px #000;
     padding: 1px;
     width: 500px;
     height: 400px;
@@ -32,7 +33,7 @@
   
   
   .page {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     margin: 3px;
     padding: 20px;
@@ -121,6 +122,17 @@
       background:url(poster1.png) no-repeat;
       background-size: cover;
     }
+    a {
+      position: relative;
+      text-decoration: none;
+      text-align: left;
+      font-size: large;
+      color: #fff;
+      margin-right: 190vh;
+      
+     
+      
+    }
   }
   .front-content,
   .page {
@@ -138,26 +150,29 @@
     justify-content: space-around;
   }
   .page p {
-    margin-top: 50vh;
+    margin-top: 3vh;
     margin-right: 25px;
-    font-size: medium;
+    font-size: large;
     text-align: center;
     justify-content: column;
   }
   
   .num {
-    margin-top: 60vh;
+    position: absolute;
+    margin-top: 70vh;
     margin-left: 35px;
     margin-right: 65px;
     font-size: small;
   }
   a {
-    position: relative;
+    position: absolute;
     text-decoration: none;
-    text-align: left;
+    
     font-size: large;
     color: #fff;
-    margin-right: 195vh;
+    margin-right: 10vh;
+    margin-left: 3vh;
+    margin-top: 3vh;
     
    
     

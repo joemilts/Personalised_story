@@ -33,7 +33,7 @@ def index():
             prompt=generate_prompt(description, age, characters),
             temperature=0.6,
             # here mate you can specify how many characters you want to get
-            max_tokens=1000
+            max_tokens=1500
         )
 
         generated_story = response["choices"][0]["text"].strip()
