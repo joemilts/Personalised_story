@@ -34,6 +34,9 @@
   
   .page {
     background-color: rgb(255, 255, 255);
+    background-image: url('book-paper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     margin: 3px;
     padding: 20px;
