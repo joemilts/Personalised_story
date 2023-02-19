@@ -57,8 +57,7 @@ def index():
         # here it ends
         return redirect(url_for("about", paragraph=paragraph, result=result, result1=result1, result2=result2, result3=result3, result4=result4, result5=result5))
 
-    result = request.args.get("result")
-    return render_template("index.html", result=result)
+    return render_template("index.html")
 
 
 @app.route("/about")
@@ -74,7 +73,7 @@ def about():
 
 
 def generate_prompt(description, age, characters):
-    return f'Write a 500 word kids story about {description} for someone aged {age} and include the characters {characters}'
+    return f'Write a kids story about {description} for someone aged {age} and include the characters {characters} , story length 500 words'
 
 
 def split_into_paragraphs(text, num_paragraphs):
