@@ -73,7 +73,7 @@ def about():
 
 
 def generate_prompt(description, age, characters):
-    return f'Write a 300 word childrens story about {description}, including the characters {characters}'
+    return f'Write a 300 word childrens story about {description}, including the character(s) {characters}.'
 
 
 def split_into_paragraphs(text, num_paragraphs):
