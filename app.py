@@ -33,7 +33,7 @@ def index():
             prompt=generate_prompt(description, age, characters),
             temperature=1,
             # here mate you can specify how many characters you want to get
-            max_tokens=250
+            max_tokens=600
         )
 
         generated_story = response["choices"][0]["text"].strip()
@@ -73,7 +73,7 @@ def about():
 
 
 def generate_prompt(description, age, characters):
-    return f'Quickly write a childrens story about {description}, including the characters {characters}'
+    return f'Write a 300 word childrens story about {description}, including the characters {characters}'
 
 
 def split_into_paragraphs(text, num_paragraphs):
